@@ -1,0 +1,13 @@
+id = "fixlang"
+name = "Fix"
+version = "0.1.0"
+schema_version = 1
+authors = ["tttmmmyyyy"]
+description = "Fix language support for Zed: language-server integration with semantic-token syntax highlighting."
+repository = "https://github.com/tttmmmyyyy/zed-fixlang-support"
+
+# The Fix language server is the `fix` compiler run in `language-server` mode.
+# The key `fix` here is the language-server id used in Zed's `lsp.fix.*` settings.
+[language_servers.fix]
+name = "Fix Language Server"
+languages = ["Fix"]
