@@ -17,7 +17,7 @@
 > }
 > ```
 >
-> See [Enable syntax highlighting](#enable-syntax-highlighting) for details.
+> See [Configuration → Syntax highlighting](#syntax-highlighting) for details.
 
 A Zed extension for the [Fix programming language](https://github.com/tttmmmyyyy/fixlang). It:
 
@@ -38,11 +38,16 @@ A Zed extension for the [Fix programming language](https://github.com/tttmmmyyyy
 1. `zed: install dev extension` from the command palette.
 2. Select this directory (`zed-plugin`).
 
-## Enable syntax highlighting
+## Configuration
+
+Settings go in Zed's `settings.json` — open it with `Ctrl-,` or the command
+palette's `zed: open settings`. For per-project settings, use a
+`.zed/settings.json` at the project root.
+
+### Syntax highlighting
 
 Highlighting for Fix is provided by the language server's LSP semantic tokens.
-Zed leaves them off by default, so turn them on for Fix in your Zed
-`settings.json`:
+Zed leaves them off by default, so turn them on for Fix:
 
 ```json
 {
@@ -65,11 +70,10 @@ Token colors follow Zed's built-in defaults for the standard LSP token types and
 your active theme. To customize them, add rules under
 `global_lsp_settings.semantic_token_rules` in `settings.json`.
 
-## Configuring the `fix` binary (optional)
+### Fix binary (optional)
 
 By default the extension runs `fix language-server` using the `fix` found on
-your `PATH`. To point at a specific binary or pass different arguments, add to
-`settings.json`:
+your `PATH`. To point at a specific binary or pass different arguments:
 
 ```json
 {
