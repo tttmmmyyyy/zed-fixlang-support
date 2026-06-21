@@ -1,6 +1,6 @@
 id = "fixlang"
 name = "Fix"
-version = "0.1.0"
+version = "0.2.0"
 schema_version = 1
 authors = ["tttmmmyyyy"]
 description = "Fix language support for Zed: language-server integration with semantic-token syntax highlighting."

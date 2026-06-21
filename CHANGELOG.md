@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.2.0] - 2026-06-21
+
+- Forward `lsp.fix.settings` to the Fix language server (via
+  `language_server_workspace_configuration`), so the `fix.analyze.delayMs` and
+  `fix.analyze.onSave` analysis settings can be configured from Zed.
+
 ## [0.1.0] - 2026-06-20
 
 - Initial release.
