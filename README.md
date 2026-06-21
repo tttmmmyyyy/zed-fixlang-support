@@ -70,6 +70,33 @@ Token colors follow Zed's built-in defaults for the standard LSP token types and
 your active theme. To customize them, add rules under
 `global_lsp_settings.semantic_token_rules` in `settings.json`.
 
+### Analysis (diagnostics)
+
+The language server re-analyzes your code shortly after you stop typing (the
+burst of edits is debounced into a single run). Configure it under the `fix`
+language server's `settings`:
+
+```json
+{
+  "lsp": {
+    "fix": {
+      "settings": {
+        "analyze": {
+          "delayMs": 400,
+          "onSave": true
+        }
+      }
+    }
+  }
+}
+```
+
+- `delayMs` (number, default `400`) — how long the server waits for typing to
+  pause before re-analyzing. `0` disables on-type analysis (it then runs only on
+  save and on initial load).
+- `onSave` (boolean, default `true`) — whether saving a file also triggers
+  analysis.
+
 ### Fix binary (optional)
 
 By default the extension runs `fix language-server` using the `fix` found on

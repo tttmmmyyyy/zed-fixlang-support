@@ -48,6 +48,21 @@ impl zed::Extension for FixExtension {
 
         Ok(zed::Command { command, args, env })
     }
+
+    fn language_server_workspace_configuration(
+        &mut self,
+        _language_server_id: &LanguageServerId,
+        worktree: &zed::Worktree,
+    ) -> Result<Option<serde_json::Value>> {
+        // Forward the user's Zed `lsp.fix.settings` (e.g.
+        //   "lsp": { "fix": { "settings": { "fix": { "analyze": {
+        //       "delayMs": 300, "onSave": false } } } } }
+        // ) to the Fix language server as its workspace configuration.
+        let settings = LspSettings::for_worktree("fix", worktree)
+            .ok()
+            .and_then(|s| s.settings);
+        Ok(settings)
+    }
 }
 
 zed::register_extension!(FixExtension);
